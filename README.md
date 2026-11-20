@@ -11,7 +11,7 @@ Proyek UAS Pemrograman Web (individu) dan bahan Kerja Praktik (KP), Program Stud
 | Keterangan | Tautan |
 |---|---|
 | Repository GitHub | https://github.com/nindaaliyya-cyber/website-laundry |
-| Laporan KP (Google Drive) | ISI_LINK_DRIVE |
+| Laporan KP (Google Drive) | https://drive.google.com/drive/folders/1IFrjSuYcESChv1j5qVuWFmmkcAAJUcIe?usp=sharing |
 | Website (setelah deployment) | ISI_ALAMAT_WEBSITE_JIKA_SUDAH_ADA |
 
 ## 2. Deskripsi Proyek
