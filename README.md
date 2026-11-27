@@ -11,96 +11,112 @@ Proyek UAS Pemrograman Web (individu) dan bahan Kerja Praktik (KP), Program Stud
 | Keterangan | Tautan |
 |---|---|
 | Repository GitHub | https://github.com/nindaaliyya-cyber/website-laundry |
-| Laporan KP (Google Drive) | https://drive.google.com/drive/folders/1IFrjSuYcESChv1j5qVuWFmmkcAAJUcIe?usp=sharing |
-| Website (setelah deployment) | ISI_ALAMAT_WEBSITE_JIKA_SUDAH_ADA |
+| Laporan KP (Google Drive) | Belum dicantumkan |
+| Website hasil deployment | Belum tersedia / belum dicantumkan |
 
 ## 2. Deskripsi Proyek
 
-Website ini dikembangkan untuk membantu pengelolaan pemesanan dan pemantauan status cucian pada usaha laundry kiloan. Sistem memiliki tiga jenis pengguna, yaitu admin, karyawan, dan pelanggan.
+Usaha laundry yang digunakan sebagai simulasi proses bisnis diberi nama **Laundry Ni-Ki**. Website ini dikembangkan untuk membantu pengelolaan pemesanan dan pemantauan status cucian. Sistem memiliki tiga jenis pengguna, yaitu admin, karyawan, dan pelanggan.
 
-Pelanggan dapat membuat pesanan dan memantau status cucian. Karyawan dapat melihat pesanan serta memperbarui status pengerjaan. Admin bertugas mengelola layanan, tarif, akun karyawan, dan seluruh pesanan.
+Pelanggan dapat membuat pesanan, melihat pesanan miliknya, membatalkan pesanan yang masih berstatus menunggu, dan membuka nota. Karyawan dapat melihat pesanan serta memperbarui berat akhir dan status pengerjaan. Admin dapat mengelola layanan, akun karyawan, dan seluruh pesanan.
 
-Biaya laundry dihitung secara otomatis berdasarkan berat akhir cucian dikalikan tarif layanan yang dipilih.
+Biaya dihitung berdasarkan berat akhir dikalikan tarif layanan. Jika satu kali proses pemesanan berisi beberapa layanan, aplikasi menyimpan setiap layanan sebagai baris pesanan tersendiri pada tabel `pesanan`; catatan umum disimpan pada baris pertama.
 
-## 3. Peran dan Hak Akses Pengguna
+## 3. Peran dan Hak Akses
 
-| Peran | Hak Akses |
+| Peran | Hak akses |
 |---|---|
-| Admin | Mengelola layanan dan tarif, mengelola akun karyawan, melihat seluruh pesanan, serta memperbarui berat akhir dan status pesanan. |
+| Admin | Mengelola layanan dan tarif, mengelola akun karyawan, melihat/memperbarui/menghapus pesanan. |
 | Karyawan | Melihat seluruh pesanan serta memperbarui berat akhir dan status pengerjaan. |
-| Pelanggan | Mendaftarkan akun, membuat pesanan dengan satu atau beberapa layanan beserta isi cucian, dan melihat pesanan miliknya sendiri. |
+| Pelanggan | Registrasi, login, membuat pesanan, melihat pesanan sendiri, membatalkan pesanan berstatus menunggu, melihat dan mencetak nota miliknya, serta mengubah profil. |
 
-**Catatan:** Akun admin dan karyawan contoh dibuat melalui `database.sql`. Kata sandi akun contoh harus diganti sebelum aplikasi digunakan pada lingkungan hosting.
+## 4. Fitur yang Tersedia pada Source Code
 
-## 4. Progres Tahap 1
+- Registrasi pelanggan, login, dan logout berbasis session.
+- Pembatasan halaman berdasarkan peran pengguna.
+- Pengelolaan layanan dan tarif oleh admin.
+- Pengelolaan akun karyawan oleh admin.
+- Pemesanan dengan satu atau beberapa layanan, perkiraan berat, catatan, dan keterangan pakaian khusus.
+- Pembaruan berat akhir, status, dan perhitungan biaya.
+- Dashboard yang menampilkan informasi sesuai peran.
+- Pembatalan pesanan oleh pelanggan selama status masih menunggu.
+- Penghapusan pesanan oleh admin.
+- Filter status dan pencarian nama pelanggan.
+- Nota pesanan yang dapat dicetak melalui browser.
+- Halaman profil untuk mengubah nama dan kata sandi.
 
-| No. | Tanggal | Milestone | Catatan dan Perkembangan |
-|---|---|---|---|
-| 1 | ISI_TANGGAL | Perencanaan dan Analisis | Judul dan proposal KP ditetapkan. Analisis kebutuhan tiga jenis pengguna, rancangan basis data, serta rancangan hak akses telah disusun. |
-| 2 | ISI_TANGGAL | Implementasi Awal | Autentikasi, CRUD layanan, pengelolaan akun karyawan, pemesanan, pengelolaan pesanan, dan dashboard telah dikembangkan dan dijalankan melalui Laragon. Perubahan rancangan meliputi penambahan peran karyawan dan dukungan beberapa layanan dalam satu pesanan. |
+## 5. Progres Pengerjaan
 
-### Fitur yang Telah Dikembangkan
+Tanggal dan status kegiatan perlu disesuaikan dengan pelaksanaan sebenarnya sebelum laporan dikumpulkan.
 
-- [x] Registrasi, login, dan logout menggunakan session.
-- [x] Tiga jenis pengguna dengan pembatasan hak akses di sisi server.
-- [x] Pengelolaan layanan dan tarif (admin).
-- [x] Pengelolaan akun karyawan (admin).
-- [x] Pemesanan dengan satu atau beberapa layanan, isi cucian, dan keterangan pakaian khusus.
-- [x] Pembaruan status dan berat akhir cucian.
-- [x] Perhitungan biaya laundry secara otomatis.
-- [x] Dashboard dengan informasi sesuai peran pengguna.
+| Tahap | Kegiatan |
+|---|---|
+| Tahap 1 | Analisis kebutuhan, rancangan basis data dan hak akses, serta implementasi awal autentikasi, layanan, pengguna, pesanan, dan dashboard. |
+| Tahap 2 | Penyempurnaan fitur, penambahan pengamanan formulir dan sesi, validasi berat akhir, serta pembaruan dokumentasi. |
+| Belum diklaim selesai | Pengujian Black Box formal, pengujian seluruh skenario hak akses, dan deployment hosting harus dilakukan dan didokumentasikan terpisah. |
 
-### Rencana Tahap 2
+## 6. Teknologi
 
-- Melakukan pengujian black box dan mendokumentasikan hasil pengujian.
-- Melakukan deployment aplikasi ke layanan hosting.
-- Mengevaluasi dan menyesuaikan sistem berdasarkan simulasi proses bisnis laundry serta referensi yang relevan.
-- Menyusun bab hasil dan kesimpulan laporan.
+- PHP 8.x
+- MySQL / MariaDB
+- HTML, CSS, dan JavaScript
+- Laragon untuk lingkungan pengembangan lokal
+- Git dan GitHub untuk version control
 
-## 5. Teknologi yang Digunakan
+## 7. Cara Menjalankan Aplikasi di Laragon
 
-- **Bahasa pemrograman:** PHP
-- **Basis data:** MySQL
-- **Tampilan:** HTML dan CSS
-- **JavaScript:** Interaksi pada halaman website
-- **Lingkungan pengembangan:** Laragon
-- **Version Control:** Git dan GitHub
+1. Pastikan PHP 8.x dan MySQL/MariaDB tersedia melalui Laragon.
+2. Salin folder proyek ke `C:\laragon\www\`, misalnya `C:\laragon\www\website-laundry`.
+3. Jalankan Apache dan MySQL melalui Laragon.
+4. Buka phpMyAdmin atau HeidiSQL, lalu impor file `database.sql`. File tersebut membuat database `laundry_db`, tabel, layanan awal, serta akun contoh.
+5. Periksa `koneksi.php`. Konfigurasi bawaan disiapkan untuk Laragon standar (`127.0.0.1`, pengguna `root`, kata sandi kosong, port `3306`). Sesuaikan jika konfigurasi MySQL berbeda.
+6. Buka `http://localhost/website-laundry/` atau sesuaikan dengan nama folder proyek.
 
-## 6. Cara Menjalankan Aplikasi (Laragon)
+Jika `koneksi.php` belum ada pada salinan lain, salin `koneksi.example.php` menjadi `koneksi.php`, kemudian sesuaikan konfigurasi databasenya.
 
-1. Salin folder proyek ke direktori `C:\laragon\www\`.
-2. Jalankan Apache dan MySQL melalui Laragon.
-3. Impor file `database.sql` melalui HeidiSQL atau phpMyAdmin.
-4. Salin file `koneksi.example.php` menjadi `koneksi.php`.
-5. Sesuaikan konfigurasi koneksi basis data pada `koneksi.php`, termasuk kata sandi MySQL jika diperlukan.
-6. Buka website melalui browser dengan alamat:
+### Akun contoh
 
-   `http://localhost/NAMA_FOLDER/`
+| Peran | Email | Kata sandi awal |
+|---|---|---|
+| Admin | admin@laundry.com | admin123 |
+| Karyawan | karyawan@laundry.com | karyawan123 |
 
-   Ganti `NAMA_FOLDER` dengan nama folder proyek yang digunakan di dalam `C:\laragon\www\`.
+Ganti kata sandi akun contoh sebelum aplikasi digunakan pada server yang dapat diakses publik. Akun contoh hanya untuk instalasi lokal/pengujian.
 
-## 7. Struktur Berkas Utama
+## 8. Struktur Berkas Utama
 
 | Berkas | Fungsi |
 |---|---|
-| `database.sql` | Berisi struktur basis data dan data awal. |
-| `koneksi.example.php` | Contoh konfigurasi koneksi basis data dan fungsi pemeriksaan login serta hak akses. |
-| `header.php`, `footer.php`, `style.css` | Mengatur tampilan, bagian halaman, dan menu berdasarkan peran pengguna. |
-| `register.php`, `login.php`, `logout.php` | Menangani proses registrasi, login, dan logout. |
-| `dashboard.php` | Menampilkan ringkasan informasi sesuai peran pengguna. |
-| `layanan.php`, `pengguna.php` | Mengelola layanan, tarif, dan akun karyawan oleh admin. |
-| `pesanan_buat.php`, `pesanan_saya.php` | Menangani pembuatan dan penampilan pesanan pelanggan. |
-| `pesanan_admin.php` | Menangani pengelolaan pesanan oleh admin dan karyawan. |
+| `index.php` | Mengarahkan pengguna ke dashboard atau halaman login. |
+| `database.sql` | Membuat database, tabel, layanan awal, dan akun contoh. |
+| `koneksi.php` | Konfigurasi dan koneksi database lokal; tidak boleh berisi kredensial produksi di repository publik. |
+| `koneksi.example.php` | Contoh konfigurasi koneksi database. |
+| `fungsi.php` | Session, pemeriksaan login/hak akses, CSRF, escaping HTML, flash message, dan format rupiah. |
+| `header.php`, `footer.php`, `style.css` | Kerangka halaman, navigasi, footer, dan tampilan. |
+| `register.php`, `login.php`, `logout.php` | Registrasi, login, dan logout. |
+| `dashboard.php` | Ringkasan informasi sesuai peran. |
+| `layanan.php`, `pengguna.php` | Pengelolaan layanan dan akun karyawan. |
+| `pesanan_buat.php`, `pesanan_saya.php` | Pembuatan dan daftar pesanan pelanggan. |
+| `pesanan_admin.php` | Pengelolaan pesanan oleh admin dan karyawan. |
+| `nota.php` | Menampilkan dan mencetak nota. |
+| `profil.php` | Mengubah nama dan kata sandi akun. |
 
-## 8. Keamanan Aplikasi
+## 9. Pengamanan yang Diimplementasikan pada Source Code
 
-Beberapa mekanisme keamanan yang diterapkan dalam pengembangan aplikasi meliputi:
+- Kata sandi disimpan menggunakan `password_hash()` dan diverifikasi dengan `password_verify()`.
+- Query yang menerima masukan pengguna menggunakan prepared statement.
+- Keluaran teks di-escape menggunakan `htmlspecialchars()` melalui fungsi `e()`.
+- Formulir POST menggunakan token CSRF.
+- Session menggunakan strict mode, cookie `HttpOnly`, dan `SameSite=Lax`; atribut `Secure` aktif saat koneksi HTTPS.
+- Login menerapkan pembatasan lima kegagalan selama 60 detik berdasarkan session browser. Ini bukan pembatasan global per alamat IP atau akun.
+- Pelanggan hanya dapat membuka pesanan dan nota miliknya sendiri.
+- Kata sandi baru minimal delapan karakter.
 
-- Kata sandi pengguna disimpan menggunakan fungsi `password_hash()`.
-- Query basis data menggunakan prepared statement.
-- Hak akses pengguna diperiksa di sisi server pada setiap halaman yang memerlukan pembatasan akses.
-- Keluaran data diamankan menggunakan `htmlspecialchars()` untuk membantu mencegah serangan XSS.
-- File konfigurasi `koneksi.php` tidak disertakan dalam repository GitHub karena dapat berisi informasi koneksi basis data.
+Keterangan di atas menjelaskan mekanisme yang ada pada source code; efektivitas dan kelengkapan keamanan tetap perlu diuji sebelum aplikasi dipublikasikan.
+
+## 10. Pengujian dan Deployment
+
+Hasil pengujian Black Box, pengujian hak akses, serta deployment belum dinyatakan berhasil hanya berdasarkan keberadaan source code. Catat skenario, hasil aktual, tanggal, dan bukti screenshot setelah pengujian langsung dilakukan. Jangan mencantumkan alamat hosting sampai website benar-benar berhasil diterapkan.
 
 ---
 
